@@ -7,7 +7,10 @@ bool escolhido[n];
 
 void search(){
     if(permutacao.size() == n){
-        // insira operações na permutação aqui
+        for(int i = 0; i < n; i++){
+            cout << permutacao[i];
+        }
+        cout << '\n';
     }else{
         for(int i = 0; i < n; i++){
             if(escolhido[i]) continue;
