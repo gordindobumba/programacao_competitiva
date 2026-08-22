@@ -1,33 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-#define INF (1e9 + 7)
-
-void dp(){
-    int n; cin >> n;
-
-        string table[2];
-        cin >> table[0] >> table[1];
-
-        vector<int> dp(n + 1, INF);
-        dp[0] = 0;
-        for(int i = 0; i < n; i++){
-            dp[i + 1] = min(dp[i + 1], dp[i] + (table[0][i] != table[1][i]));
-            if(i + 1 < n){
-                dp[i + 2] = min(dp[i + 2], dp[i] + (table[0][i] != table[0][i + 1]) + (table[1][i] != table[1][i + 1]));
-            }
-        }
-
-    
-    cout << dp[n] << '\n';
-}
-
+ 
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
-
-    int t; cin >> t;
+ 
+    int t, n; cin >> t;
+    string table[2];
     while(t--){
-        dp();
+        cin >> n;
+        int res = 0;
+ 
+        string table[2];
+        cin >> table[0];
+        cin >> table[1];
+ 
+        int b1, b2;
+ 
+        for(int j = 0; j < n; j++){
+            b1 = (table[0][j] != table[1][j]);
+            if(j < n - 1) b2 = (table[0][j] != table[0][j + 1]) + (table[1][j] != table[1][j + 1]);
+            else b2 = 2;
+            res += min(b1, b2);
+            if(b2 < b1) j += 1;
+        }
+ 
+        cout << res << '\n';
     }
 }
