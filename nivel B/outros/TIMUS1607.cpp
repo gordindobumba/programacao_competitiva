@@ -6,18 +6,18 @@ int main(){
     cin.tie(0);
 
     int a, b, c, d;
-    cin>>a>>b>>c>>d;
+    cin >> a >> b >> c >> d;
 
     int i = 0;
-    while(1){
+    while(true){
         if(a + i*b >= c - i*d){
             cout << a + i*b;
-            break;
+            return 0;
         }
 
         if(a + (i + 1)*b >= c - i*d){
             cout << c - i*d;
-            break;
+            return 0;
         }
 
         i++;

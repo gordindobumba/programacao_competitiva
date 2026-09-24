@@ -3,6 +3,5 @@ using namespace std;
 
 int main(){
     string days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-    int y = floor(13/4);
-    cout << "March 29, 2013 " << days[(y + 29 + 2 + 6) % 7];
+    cout << "May 29, 2013 " << days[(2013 + 2013/4 - 2013/100 + 2013/400 + 0 + 29) % 7] << '\n';
 }

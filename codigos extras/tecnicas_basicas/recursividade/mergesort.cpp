@@ -9,34 +9,38 @@ void merge(vector<int>& v, int l, int m, int r){
     int s1 = m - l + 1;
     int s2 = r - m;
 
-    vector<int> subarray_esq(s1), subarray_dir(s2);
-    for(int i = 0; i < s1; i++)
-        subarray_esq[i] = v[l + i];
-    for(int j = 0; j < s2; j++) 
-        subarray_dir[j] = v[m + 1 + j];
+    vector<int> subarray_esq(s1);
+    vector<int> subarray_dir(s2);
 
-    // Aqui ocorre a ordenação
-    int i = 0, j = 0, k = l;
+    for (int i = 0; i < s1; i++)
+        subarray_esq[i] = v[l + i];
+    for (int j = 0; j < s2; j++)
+        subarray_dir[j] = v[m + 1 + j];
+    
+        int i = 0, j = 0, k = l;
+
     while(i < s1 && j < s2){
         if(subarray_esq[i] <= subarray_dir[j]){
             v[k] = subarray_esq[i];
             i++;
-        }else{
+        }
+        else{
             v[k] = subarray_dir[j];
             j++;
         }
         k++;
     }
 
-    // Se algum subarray ainda tiver elementos sobrando, coloca no vetor
     while(i < s1){
         v[k] = subarray_esq[i];
-        i++; k++;
+        i++;
+        k++;
     }
 
     while(j < s2){
         v[k] = subarray_dir[j];
-        j++; k++;
+        j++;
+        k++;
     }
 }
 

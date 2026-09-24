@@ -3,7 +3,7 @@ using namespace std;
 
 #define pii pair<int, int>
 #define MP make_pair
-#define PB push_back
+#define pb push_back
 
 int main(){
     int n, m, a, b;
@@ -11,7 +11,7 @@ int main(){
     vector<pii> matches;
     for(int i = 0; i < m; i++){
         cin >> a >> b;
-        matches.PB(MP(b, a));
+        matches.pb(MP(b, a));
     }
 
     sort(matches.rbegin(), matches.rend());

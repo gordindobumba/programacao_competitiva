@@ -52,6 +52,7 @@ int main(){
 
     
     // Algoritmo 3, complexidade: O(n)
+    // Também conhecido como algoritmo de Kadane
 
     inicio = chrono::steady_clock::now();
 

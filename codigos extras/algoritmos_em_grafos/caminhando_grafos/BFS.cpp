@@ -1,20 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int N = 100;
+const int INF = 0x3f3f3f3f;
 #define vi vector<int>
 #define sz(v) (v).size()
-#define INF 1e9
 #define pii pair<int, int>
-#define MP make_pair
 #define scan(i, v) for(int i = 0; i < (int)v.size(); i++)
-#define PB push_back
+#define pb push_back
 #define all(v) ((v).begin()), ((v).end())
-#define N 100
 
 vi BFS(int s, vector<vector<int>>& adj){
     vi len(sz(adj), INF);
     queue<pii> q;
-    q.push(MP(s, 0)), len[s] = 0;
+    q.push({s, 0}), len[s] = 0;
     int atual, profu;
 
     while(!q.empty()){
@@ -23,7 +22,7 @@ vi BFS(int s, vector<vector<int>>& adj){
 
         scan(i, adj[atual]){
             if(len[adj[atual][i]] == INF){ // Se não tiver visitado ainda
-                q.push(MP(adj[atual][i], profu + 1));
+                q.push({adj[atual][i], profu + 1});
                 len[adj[atual][i]] = profu + 1;
             }
         }
@@ -62,7 +61,7 @@ vi BFSPath(int s, int d, vector<vector<int>>& adj){ // Se quisermos ver o caminh
 
     vi path;
     while(d != -1){
-        path.PB(d);
+        path.pb(d);
         d = pai[d];
     }
 
