@@ -2,8 +2,11 @@
 using namespace std;
 
 const int INF = 0x3f3f3f3f;
-struct aresta{
+typedef struct aresta{
     int a, b, w;
+    bool operator<(const struct aresta& outro){
+        return w < outro.w;
+    }
 }ar;
 
 struct DSU{

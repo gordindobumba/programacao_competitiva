@@ -8,11 +8,6 @@ int main(){
     int n, k, l, c, d, p, nl, np;
     cin >> n >> k >> l >> c >> d >> p >> nl >> np;
 
-    int t1 = (k * l)/nl;
-    int t2 = c * d;
-    int t3 = p/np;
-    int x = min(min(t1, t2), t3);
-
-    x /= n;
-    cout << x;
+    int m1 = (k * l) / nl, m2 = p / np, m3 = c * d;
+    cout << min(min(m1, m2), m3) / n;
 }

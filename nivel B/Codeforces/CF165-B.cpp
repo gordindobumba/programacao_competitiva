@@ -23,17 +23,12 @@ int main(){
     int k;
     cin >> n >> k;
     
-    ull ans = n;
-    int top = n, bottom = 1;
-    while(bottom <= top){
-        ull middle = bottom + (top - bottom) / 2;
-        if(sums(middle, k) >= n){
-            ans = middle;
-            top = middle - 1;
-        }else{
-            bottom = middle + 1;
-        }
+    ull l = 0, r = 2 * n, m;
+    while(l <= r){
+        m = l + (r - l)/2;
+        if(sums(m, k) >= n) r = m - 1;
+        else l = m + 1;
     }
 
-    cout << ans;
+    cout << l;
 }

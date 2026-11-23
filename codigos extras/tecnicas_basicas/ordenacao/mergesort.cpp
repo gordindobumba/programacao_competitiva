@@ -17,7 +17,7 @@ void merge(vector<int>& v, int l, int m, int r){
     for (int j = 0; j < s2; j++)
         subarray_dir[j] = v[m + 1 + j];
     
-        int i = 0, j = 0, k = l;
+    int i = 0, j = 0, k = l;
 
     while(i < s1 && j < s2){
         if(subarray_esq[i] <= subarray_dir[j]){

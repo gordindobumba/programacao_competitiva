@@ -16,5 +16,6 @@ int main(){
             }
         }
         cout << t/2 + e;
-    }else cout << t/2;
+    }
+    else cout << t/2;
 }

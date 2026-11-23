@@ -6,7 +6,7 @@ vector<int> h;
 
 bool test(int t){
     for(int i = 0; i < (int)h.size(); i++){       
-        if(intervals[t + h[i]] && t + h[i] <= 1000) return true;
+        if(t + h[i] <= 1000 && intervals[t + h[i]]) return true;
     }
     return false;
 }

@@ -1,7 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int p_sort(vector<int> &v, int l, int r){
+int t = 1;
+int n;
+
+void imprimir_vetor(vector<int> &v, int l, int r){
+    cout << "iteracao " << t++ << ": ";
+    for(int i = 0; i < n; i++){
+        if(i == l) cout << "| ";
+        cout << v[i] << " ";
+        if(i == r) cout << "| ";
+    }
+
+    cout << "\n\n";
+}
+
+int partir(vector<int> &v, int l, int r){
     int i = l, j = l;
     while(j < r){
         if(v[j] <= v[r]){
@@ -16,7 +30,8 @@ int p_sort(vector<int> &v, int l, int r){
 }
 
 void quicksort(vector<int> &v, int l, int r){
-    int p = p_sort(v, l, r);
+    imprimir_vetor(v, l, r);
+    int p = partir(v, l, r);
     
     if(p > l) quicksort(v, l, p - 1);
     if(p < r) quicksort(v, p + 1, r);
@@ -24,9 +39,7 @@ void quicksort(vector<int> &v, int l, int r){
 
 int main(){
     vector<int> v = {16, 31, 97, 73, 23, 85, 13, 45, 12, 10, 64};
-    int n = v.size();
+    n = v.size();
     quicksort(v, 0, n - 1);
-    for(auto x : v){
-        cout << x << " ";
-    }
+    imprimir_vetor(v, -1, n + 1);
 }
